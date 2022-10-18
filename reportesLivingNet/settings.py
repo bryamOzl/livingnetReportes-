@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import dj_database_url
+import os
 from pathlib import Path
 
 from soportesLivingNet.apps import SoporteslivingnetConfig
@@ -22,15 +24,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = "django-insecure-*a=wj%6)1+)p)(ao%qu2-n#b@g&0g4u@mp624xmhqco-zs#w$5"
-import os
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-*a=wj%6)1+)p)(ao%qu2-n#b@g&0g4u@mp624xmhqco-zs#w$5')
+# SECRET_KEY = "django-insecure-*a=wj%6)1+)p)(ao%qu2-n#b@g&0g4u@mp624xmhqco-zs#w$5"
+SECRET_KEY = os.environ.get(
+    'DJANGO_SECRET_KEY', 'django-insecure-*a=wj%6)1+)p)(ao%qu2-n#b@g&0g4u@mp624xmhqco-zs#w$5')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = False
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.herokuapp.com', 
+                '127.0.0.1']
 
 
 # Application definition
@@ -38,8 +41,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'material',
     'material.admin',
-    
-    #"django.contrib.admin",
+
+    # "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
@@ -132,7 +135,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 # The absolute path to the directory where collectstatic will collect static files for deployment.
-STATIC_ROOT = BASE_DIR / 'staticfiles'  #. os.path.join(BASE_DIR, 'staticfiles')
+# . os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 # The URL to use when referring to static files (where they will be served from)
 STATIC_URL = '/static/'
 
@@ -142,19 +146,25 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 MATERIAL_ADMIN_SITE = {
-    #'HEADER':  _('Your site header'),  # Admin site header
-    #'TITLE':  _('Your site title'),  # Admin site title
-    'FAVICON':  'img/icon.jpg',  # Admin site favicon (path to static should be specified)
+    # 'HEADER':  _('Your site header'),  # Admin site header
+    # 'TITLE':  _('Your site title'),  # Admin site title
+    # Admin site favicon (path to static should be specified)
+    'FAVICON':  'img/icon.jpg',
     'MAIN_BG_COLOR':  '#1C4093',  # Admin site main color, css color should be specified
-    'MAIN_HOVER_COLOR':  '#0BA0C9',  # Admin site main hover color, css color should be specified
-    'PROFILE_PICTURE':  'img/icon.jpg',  # Admin site profile picture (path to static should be specified)
-    'PROFILE_BG':  'img/bgliving.png',  # Admin site profile background (path to static should be specified)
-    'LOGIN_LOGO':  'img/icon.jpg',  # Admin site logo on login page (path to static should be specified)
-    'LOGOUT_BG':  'img/bg2.png',  # Admin site background on login/logout pages (path to static should be specified)
-    #'SHOW_THEMES':  True,  #  Show default admin themes button
-    #'TRAY_REVERSE': True,  # Hide object-tools and additional-submit-line by default
-    #'NAVBAR_REVERSE': True,  # Hide side navbar by default
-    #'SHOW_COUNTS': True, # Show instances counts for each model
+    # Admin site main hover color, css color should be specified
+    'MAIN_HOVER_COLOR':  '#0BA0C9',
+    # Admin site profile picture (path to static should be specified)
+    'PROFILE_PICTURE':  'img/icon.jpg',
+    # Admin site profile background (path to static should be specified)
+    'PROFILE_BG':  'img/bgliving.png',
+    # Admin site logo on login page (path to static should be specified)
+    'LOGIN_LOGO':  'img/icon.jpg',
+    # Admin site background on login/logout pages (path to static should be specified)
+    'LOGOUT_BG':  'img/bg2.png',
+    # 'SHOW_THEMES':  True,  #  Show default admin themes button
+    # 'TRAY_REVERSE': True,  # Hide object-tools and additional-submit-line by default
+    # 'NAVBAR_REVERSE': True,  # Hide side navbar by default
+    # 'SHOW_COUNTS': True, # Show instances counts for each model
     'APP_ICONS': {  # Set icons for applications(lowercase), including 3rd party apps, {'application_name': 'material_icon_name', ...}
         'sites': 'send',
     },
@@ -164,7 +174,6 @@ MATERIAL_ADMIN_SITE = {
 }
 
 # Heroku: Update database configuration from $DATABASE_URL.
-import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
