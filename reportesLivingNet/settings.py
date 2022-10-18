@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get(
 #DEBUG = False
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['.herokuapp.com', 
+ALLOWED_HOSTS = ['livingn3t.herokuapp.com', 
                 '127.0.0.1']
 
 
