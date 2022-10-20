@@ -23,7 +23,8 @@ class ReporteAdmin(admin.ModelAdmin):
     """ list_display = ['Contrato_con_id', 'rep_estado', 'rep_pro_reportado', 'rep_pro_tecnico',
                     'rep_pon', 'rep_potencia_entrada', 'rep_potencia_salida', 'Equipo_equ_id',
                     'rep_ndispositivos', 'rep_ab_mikrotik', 'Casa_cas_id', 'update'] """
-    list_display = ['Contrato_con_id', 'rep_estado', 'rep_pro_reportado', 'rep_pro_tecnico', 'Contrato_con_id__con_odb', 'update']
+    list_display = ['Contrato_con_id', 'rep_estado', 'rep_pro_reportado',
+                    'rep_pro_tecnico', 'update']
     #ordering = ('-publication_date',)
     list_filter = ('rep_estado',)
     search_fields = ('Contrato_con_id__con_cod_contrato',)
