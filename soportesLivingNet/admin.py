@@ -23,7 +23,7 @@ class ReporteAdmin(admin.ModelAdmin):
     """ list_display = ['Contrato_con_id', 'rep_estado', 'rep_pro_reportado', 'rep_pro_tecnico',
                     'rep_pon', 'rep_potencia_entrada', 'rep_potencia_salida', 'Equipo_equ_id',
                     'rep_ndispositivos', 'rep_ab_mikrotik', 'Casa_cas_id', 'update'] """
-    list_display = ['Contrato_con_id', 'rep_estado', 'rep_pro_reportado',
+    list_display = ['Contrato_con_id', 'odb', 'rep_estado', 'rep_pro_reportado',
                     'rep_pro_tecnico', 'update']
     #ordering = ('-publication_date',)
     list_filter = ('rep_estado',)
@@ -34,6 +34,9 @@ class ReporteAdmin(admin.ModelAdmin):
               ('rep_ndispositivos', 'rep_ab_mikrotik'),
               ('Equipo_equ_id', 'Casa_cas_id'),
               'rep_observaciones', 'Contrato_con_id']
+    
+    def odb(self, obj):
+        return obj.Contrato_con_id.con_odb
 
 
 class EquipoAdmin(admin.ModelAdmin):
