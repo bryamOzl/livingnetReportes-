@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Casa, Contrato, Equipo, Reporte
+from .models import Casa, Contrato, Equipo, ProblemaReportado, ProblemaConfirmado, Reporte
 
 # Register your models here.
 
@@ -20,23 +20,30 @@ class ContratoAdmin(admin.ModelAdmin):
 
 
 class ReporteAdmin(admin.ModelAdmin):
-    """ list_display = ['Contrato_con_id', 'rep_estado', 'rep_pro_reportado', 'rep_pro_tecnico',
-                    'rep_pon', 'rep_potencia_entrada', 'rep_potencia_salida', 'Equipo_equ_id',
-                    'rep_ndispositivos', 'rep_ab_mikrotik', 'Casa_cas_id', 'update'] """
-    list_display = ['Contrato_con_id', 'odb', 'rep_estado', 'rep_pro_reportado',
-                    'rep_pro_tecnico', 'update']
-    #ordering = ('-publication_date',)
-    list_filter = ('rep_estado',)
-    search_fields = ('Contrato_con_id__con_cod_contrato',)
-    autocomplete_fields = ['Contrato_con_id', 'Equipo_equ_id', 'Casa_cas_id']
-    fields = ['rep_pro_reportado', 'rep_pro_tecnico', 'rep_estado', 'rep_pon',
+    list_display = ['Contrato', 'zona', 'Equipo', 'rep_estado',
+                    'pro_reportado', 'created']
+    list_filter = ('rep_estado', 'ProblemaReportado')
+    search_fields = ('Contrato__con_cod_contrato', 'created')
+    autocomplete_fields = ['Contrato', 'Equipo', 'Casa',
+                           'ProblemaReportado', 'ProblemaConfirmado']
+    fields = [('ProblemaReportado', 'ProblemaConfirmado'),
+              'rep_estado', 'rep_pon',
               ('rep_potencia_entrada', 'rep_potencia_salida'),
               ('rep_ndispositivos', 'rep_ab_mikrotik'),
-              ('Equipo_equ_id', 'Casa_cas_id'),
-              'rep_observaciones', 'Contrato_con_id']
-    
+              ('Equipo', 'Casa'),
+              'rep_tipo_soporte', 'rep_observaciones', 'Contrato']
+
     def odb(self, obj):
-        return obj.Contrato_con_id.con_odb
+        return obj.Contrato.con_odb
+
+    def zona(self, obj):
+        return obj.Contrato.con_zona
+
+    def pro_reportado(self, obj):
+        return obj.ProblemaReportado.prep_problema
+
+    def pro_confirmado(self, obj):
+        return obj.ProblemaConfirmado.pcon_problema
 
 
 class EquipoAdmin(admin.ModelAdmin):
@@ -51,7 +58,21 @@ class CasaAdmin(admin.ModelAdmin):
     search_fields = ('cas_tipo',)
 
 
+class ProblemaReportadoAdmin(admin.ModelAdmin):
+    list_display = ['prep_codigo', 'prep_problema', 'create', 'update']
+    ordering = ['prep_problema']
+    search_fields = ['prep_problema']
+
+
+class ProblemaConfirmadoAdmin(admin.ModelAdmin):
+    list_display = ['pcon_codigo', 'pcon_problema', 'create', 'update']
+    ordering = ['pcon_problema']
+    search_fields = ['pcon_problema']
+
+
 admin.site.register(Contrato, ContratoAdmin)
 admin.site.register(Reporte, ReporteAdmin)
 admin.site.register(Equipo, EquipoAdmin)
 admin.site.register(Casa, CasaAdmin)
+admin.site.register(ProblemaReportado, ProblemaReportadoAdmin)
+admin.site.register(ProblemaConfirmado, ProblemaConfirmadoAdmin)

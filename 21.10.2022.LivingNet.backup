@@ -1,3 +1,270 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 14.5
+-- Dumped by pg_dump version 14.5
+
+-- Started on 2022-10-21 12:25:38
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 3471 (class 0 OID 17243)
+-- Dependencies: 216
+-- Data for Name: auth_group; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.auth_group (id, name) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3467 (class 0 OID 17229)
+-- Dependencies: 212
+-- Data for Name: django_content_type; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.django_content_type (id, app_label, model) FROM stdin;
+1	auth	permission
+2	auth	group
+3	auth	user
+4	contenttypes	contenttype
+5	sessions	session
+6	admin	logentry
+7	soportesLivingNet	casa
+8	soportesLivingNet	contrato
+9	soportesLivingNet	equipo
+10	soportesLivingNet	problemaconfirmado
+11	soportesLivingNet	problemareportado
+12	soportesLivingNet	reporte
+\.
+
+
+--
+-- TOC entry 3469 (class 0 OID 17237)
+-- Dependencies: 214
+-- Data for Name: auth_permission; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.auth_permission (id, name, content_type_id, codename) FROM stdin;
+1	Can add permission	1	add_permission
+2	Can change permission	1	change_permission
+3	Can delete permission	1	delete_permission
+4	Can view permission	1	view_permission
+5	Can add group	2	add_group
+6	Can change group	2	change_group
+7	Can delete group	2	delete_group
+8	Can view group	2	view_group
+9	Can add user	3	add_user
+10	Can change user	3	change_user
+11	Can delete user	3	delete_user
+12	Can view user	3	view_user
+13	Can add content type	4	add_contenttype
+14	Can change content type	4	change_contenttype
+15	Can delete content type	4	delete_contenttype
+16	Can view content type	4	view_contenttype
+17	Can add session	5	add_session
+18	Can change session	5	change_session
+19	Can delete session	5	delete_session
+20	Can view session	5	view_session
+21	Can add log entry	6	add_logentry
+22	Can change log entry	6	change_logentry
+23	Can delete log entry	6	delete_logentry
+24	Can view log entry	6	view_logentry
+25	Can add Tipo de Casa	7	add_casa
+26	Can change Tipo de Casa	7	change_casa
+27	Can delete Tipo de Casa	7	delete_casa
+28	Can view Tipo de Casa	7	view_casa
+29	Can add Contrato	8	add_contrato
+30	Can change Contrato	8	change_contrato
+31	Can delete Contrato	8	delete_contrato
+32	Can view Contrato	8	view_contrato
+33	Can add Equipo	9	add_equipo
+34	Can change Equipo	9	change_equipo
+35	Can delete Equipo	9	delete_equipo
+36	Can view Equipo	9	view_equipo
+37	Can add Problema Confirmado	10	add_problemaconfirmado
+38	Can change Problema Confirmado	10	change_problemaconfirmado
+39	Can delete Problema Confirmado	10	delete_problemaconfirmado
+40	Can view Problema Confirmado	10	view_problemaconfirmado
+41	Can add Problema Reportado	11	add_problemareportado
+42	Can change Problema Reportado	11	change_problemareportado
+43	Can delete Problema Reportado	11	delete_problemareportado
+44	Can view Problema Reportado	11	view_problemareportado
+45	Can add Reporte	12	add_reporte
+46	Can change Reporte	12	change_reporte
+47	Can delete Reporte	12	delete_reporte
+48	Can view Reporte	12	view_reporte
+\.
+
+
+--
+-- TOC entry 3473 (class 0 OID 17251)
+-- Dependencies: 218
+-- Data for Name: auth_group_permissions; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.auth_group_permissions (id, group_id, permission_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3475 (class 0 OID 17257)
+-- Dependencies: 220
+-- Data for Name: auth_user; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
+1	pbkdf2_sha256$390000$Tn5oeKgp7iukYs55lM8wxF$ad31TuPtyhuhMt9AokiQGmhcbJxgjx8T3N6WW650dwY=	2022-10-21 11:49:15.823612-05	t	admin				t	t	2022-10-21 11:48:51.426756-05
+\.
+
+
+--
+-- TOC entry 3477 (class 0 OID 17265)
+-- Dependencies: 222
+-- Data for Name: auth_user_groups; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.auth_user_groups (id, user_id, group_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3479 (class 0 OID 17271)
+-- Dependencies: 224
+-- Data for Name: auth_user_user_permissions; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.auth_user_user_permissions (id, user_id, permission_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3481 (class 0 OID 17329)
+-- Dependencies: 226
+-- Data for Name: django_admin_log; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) FROM stdin;
+1	2022-10-20 12:08:51.632164-05	1	CCR108 ESPINOZA MENDEZ WILLIAM BORIS	1	[{"added": {}}]	10	1
+2	2022-10-20 12:23:17.070046-05	2	CCR185 PESANTEZ CASUAL KARINA ISABEL	1	[{"added": {}}]	10	1
+3	2022-10-21 11:55:26.98486-05	1	ROUTER CON PROBLEMAS	1	[{"added": {}}]	11	1
+4	2022-10-21 11:55:40.483676-05	2	ONT CON PROBLEMAS	1	[{"added": {}}]	11	1
+5	2022-10-21 11:56:06.064807-05	3	DESCARGAS ELECTRICAS	1	[{"added": {}}]	11	1
+6	2022-10-21 11:56:24.479817-05	4	ETHER CON PROBLEMAS	1	[{"added": {}}]	11	1
+7	2022-10-21 11:56:35.396644-05	5	NO TIENE INTERNET	1	[{"added": {}}]	11	1
+8	2022-10-21 11:56:52.293229-05	6	PING ALTO	1	[{"added": {}}]	11	1
+9	2022-10-21 11:57:09.93561-05	7	ROUTER DAÑADO	1	[{"added": {}}]	11	1
+10	2022-10-21 11:57:28.726366-05	8	ROUTER RESETEADO	1	[{"added": {}}]	11	1
+11	2022-10-21 11:57:43.460787-05	9	SERVICION INTERMITENTE	1	[{"added": {}}]	11	1
+12	2022-10-21 11:57:52.402292-05	10	SERVICIO LENTO	1	[{"added": {}}]	11	1
+13	2022-10-21 11:58:07.219119-05	11	CAMBIO DE CONTRASENIA	1	[{"added": {}}]	11	1
+14	2022-10-21 11:58:30.718099-05	12	TEST DE VELOCIDAD DEFICIENTE	1	[{"added": {}}]	11	1
+15	2022-10-21 11:58:55.273945-05	13	COBERTURA WIFI DEFISIENTE	1	[{"added": {}}]	11	1
+16	2022-10-21 11:59:05.131837-05	14	PROBLEMAS ZOOM	1	[{"added": {}}]	11	1
+17	2022-10-21 12:01:28.896856-05	15	NO SE CONECTAN TODOS LOS EQUIPOS	1	[{"added": {}}]	11	1
+18	2022-10-21 12:02:58.180275-05	1	ROUTER CON PROBLEMAS	1	[{"added": {}}]	10	1
+19	2022-10-21 12:03:25.862051-05	2	ONT CON PROBLEMAS	1	[{"added": {}}]	10	1
+20	2022-10-21 12:04:10.441665-05	2	ONT CON PROBLEMAS	2	[{"changed": {"fields": ["C\\u00f3digo"]}}]	10	1
+21	2022-10-21 12:04:26.095938-05	3	DESCARGAS ELECTRICAS	1	[{"added": {}}]	10	1
+22	2022-10-21 12:04:44.138756-05	4	ETHER CON PROBLEMAS	1	[{"added": {}}]	10	1
+23	2022-10-21 12:04:57.502679-05	5	SATURACION	1	[{"added": {}}]	10	1
+24	2022-10-21 12:05:38.435611-05	6	ROUTER DAÑADO	1	[{"added": {}}]	10	1
+25	2022-10-21 12:06:04.376867-05	7	ROUTER RESETEADO	1	[{"added": {}}]	10	1
+26	2022-10-21 12:06:18.100563-05	8	CAMBIO DE CONTRASEÑA	1	[{"added": {}}]	10	1
+27	2022-10-21 12:06:25.326691-05	9	LOS	1	[{"added": {}}]	10	1
+28	2022-10-21 12:06:39.628417-05	10	TEST DE VELOCIDAD DEFICIENTE	1	[{"added": {}}]	10	1
+29	2022-10-21 12:06:58.186015-05	11	COBERTURA WIFI DEFICIENTE	1	[{"added": {}}]	10	1
+30	2022-10-21 12:07:06.848977-05	12	SISTEMA MANDO A CORTE	1	[{"added": {}}]	10	1
+31	2022-10-21 12:08:06.272983-05	13	ROUTER SECUNDARIO CON PROBLEMAS	1	[{"added": {}}]	10	1
+32	2022-10-21 12:08:21.588055-05	14	CAMBIO DE UBICACION DE EQUIPO	1	[{"added": {}}]	10	1
+33	2022-10-21 12:08:31.60292-05	15	NO DETERMINADO	1	[{"added": {}}]	10	1
+34	2022-10-21 12:08:44.720351-05	16	ONT DAÑADA	1	[{"added": {}}]	10	1
+35	2022-10-21 12:08:58.720107-05	17	EQUIPOS DESCONECTADOS	1	[{"added": {}}]	10	1
+36	2022-10-21 12:09:10.663083-05	18	VELOCIDAD DEFICIENTE	1	[{"added": {}}]	10	1
+37	2022-10-21 12:09:26.504677-05	19	POTENCIA BAJA	1	[{"added": {}}]	10	1
+38	2022-10-21 12:09:35.093199-05	20	CONFLICTO DE IP	1	[{"added": {}}]	10	1
+39	2022-10-21 12:09:48.624653-05	21	WIFI NO CERTIFICADO	1	[{"added": {}}]	10	1
+40	2022-10-21 12:09:59.273442-05	22	MARCADO DE PAQUETES	1	[{"added": {}}]	10	1
+41	2022-10-21 12:10:13.949203-05	23	EQUIPOS DEFICIENTES USUARIO	1	[{"added": {}}]	10	1
+\.
+
+
+--
+-- TOC entry 3465 (class 0 OID 17221)
+-- Dependencies: 210
+-- Data for Name: django_migrations; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.django_migrations (id, app, name, applied) FROM stdin;
+1	contenttypes	0001_initial	2022-10-21 11:48:28.635301-05
+2	auth	0001_initial	2022-10-21 11:48:28.780389-05
+3	admin	0001_initial	2022-10-21 11:48:28.825143-05
+4	admin	0002_logentry_remove_auto_add	2022-10-21 11:48:28.839092-05
+5	admin	0003_logentry_add_action_flag_choices	2022-10-21 11:48:28.849066-05
+6	contenttypes	0002_remove_content_type_name	2022-10-21 11:48:28.901068-05
+7	auth	0002_alter_permission_name_max_length	2022-10-21 11:48:28.911065-05
+8	auth	0003_alter_user_email_max_length	2022-10-21 11:48:28.920014-05
+9	auth	0004_alter_user_username_opts	2022-10-21 11:48:28.930249-05
+10	auth	0005_alter_user_last_login_null	2022-10-21 11:48:28.937231-05
+11	auth	0006_require_contenttypes_0002	2022-10-21 11:48:28.938229-05
+12	auth	0007_alter_validators_add_error_messages	2022-10-21 11:48:28.9492-05
+13	auth	0008_alter_user_username_max_length	2022-10-21 11:48:28.965157-05
+14	auth	0009_alter_user_last_name_max_length	2022-10-21 11:48:28.978124-05
+15	auth	0010_alter_group_name_max_length	2022-10-21 11:48:28.989709-05
+16	auth	0011_update_proxy_permissions	2022-10-21 11:48:29.001677-05
+17	auth	0012_alter_user_first_name_max_length	2022-10-21 11:48:29.009662-05
+18	sessions	0001_initial	2022-10-21 11:48:29.034623-05
+19	soportesLivingNet	0001_initial	2022-10-21 11:48:29.159046-05
+20	soportesLivingNet	0002_alter_problemaconfirmado_pcon_codigo_and_more	2022-10-21 12:00:57.384504-05
+\.
+
+
+--
+-- TOC entry 3482 (class 0 OID 17357)
+-- Dependencies: 227
+-- Data for Name: django_session; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.django_session (session_key, session_data, expire_date) FROM stdin;
+gcq09bn5wdtysm8b481ys61308f0se8g	.eJxVjEEOwiAQRe_C2pC2TIG6dO8ZyMwwSNVAUtqV8e7apAvd_vfef6mA25rD1mQJc1Rn1avT70bIDyk7iHcst6q5lnWZSe-KPmjT1xrleTncv4OMLX9rQowdETGT48HFaeq8lwQGJDGZSCaNHgZKaIxlaxlQeoCEo7MegdT7Ays8OUk:1olvCt:IiDXIhE8JFA2slK6_agj7ckm4UBIT2uAKsCPSkh1dIc	2022-11-04 11:49:15.825218-05
+kugvdzb8w4ujpgn40i67i9u11dj7ciqk	.eJxVjM0OwiAQhN-FsyGA9AeP3n0GsrvsStVAUtqT8d1tkx70Nvnmm3mrCOuS49p4jlNSF2XV6Zch0JPLXqQHlHvVVMsyT6h3RR9t07ea-HU93L-DDC1vazadnDuLg_S2ZwhJvMCW0DmGDg3SSNIHJ27wCGw8g7c2EG1kpMGpzxcEtji0:1olZCz:-_C01V7pZF0BlqO204Ym8ZZoKEaJqsjg777sQ2gAehQ	2022-11-03 12:19:53.733116-05
+4yhucnj4phmcij9aiz55mhfhrtw6buq7	.eJxVjM0OwiAQhN-FsyGA9AeP3n0GsrvsStVAUtqT8d1tkx70Nvnmm3mrCOuS49p4jlNSF2XV6Zch0JPLXqQHlHvVVMsyT6h3RR9t07ea-HU93L-DDC1vazadnDuLg_S2ZwhJvMCW0DmGDg3SSNIHJ27wCGw8g7c2EG1kpMGpzxcEtji0:1oleGw:VWfvfoAIHvAxyRHCCb_MdIuDZvM-FuinEqGmVqFvErs	2022-11-03 17:44:18.681704-05
+\.
+
+
+--
+-- TOC entry 3484 (class 0 OID 17367)
+-- Dependencies: 229
+-- Data for Name: soportesLivingNet_casa; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."soportesLivingNet_casa" (cas_id_pk, cas_tipo, created, update) FROM stdin;
+1	CASA GRANDE	2022-10-19 15:56:58.209818-05	2022-10-19 15:56:58.209818-05
+2	CASA PEQUEÑA	2022-10-19 15:57:14.918797-05	2022-10-19 15:57:14.918797-05
+3	DEPARTAMENTO	2022-10-19 15:57:26.462843-05	2022-10-19 15:57:26.462843-05
+4	CASA DE ADOBE	2022-10-19 15:57:35.663869-05	2022-10-19 15:57:35.663869-05
+5	CUARTO	2022-10-19 15:57:42.955603-05	2022-10-19 15:57:42.955603-05
+6	NO DETERMINADO	2022-10-19 15:57:49.358989-05	2022-10-19 15:57:49.358989-05
+\.
+
+
+--
+-- TOC entry 3486 (class 0 OID 17373)
+-- Dependencies: 231
+-- Data for Name: soportesLivingNet_contrato; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
 COPY public."soportesLivingNet_contrato" (con_id_pk, con_sn, con_onu_type, con_cod_contrato, con_nombre, con_zona, con_direccion, con_odb, con_status) FROM stdin;
 1	DD16E6390F14	CDATA-1GE	CCR043	SANDOVAL VARGAS MANUEL ROSENDO	DISTRITO 1 RICAURTE	P0X HERNAN 10.1.27.39	RC1A01	Online
 2	DE20E6405D54	CDATA-1GE	CCR055	GUERRA GUEVARA MARCO VINICIO	DISTRITO 1 RICAURTE	P0X HERNAN 10.1.27.7	RC1A04	Online
@@ -1569,4 +1836,237 @@ COPY public."soportesLivingNet_contrato" (con_id_pk, con_sn, con_onu_type, con_c
 1568	DE20E64057E4	CDATA-1GE	000013	PRUEBA ONUS	OFICINA HERMANO MIGUEL	10.1.64.7	RACK	Power fail
 \.
 
+
+--
+-- TOC entry 3488 (class 0 OID 17383)
+-- Dependencies: 233
+-- Data for Name: soportesLivingNet_equipo; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."soportesLivingNet_equipo" (equ_id_pk, equ_nombre, created, update) FROM stdin;
+1	TP-LINK 940	2022-10-19 15:52:34.629288-05	2022-10-19 15:52:34.629288-05
+2	ARCHER C6	2022-10-19 15:52:55.547444-05	2022-10-19 15:52:55.547444-05
+3	ARCHER C80	2022-10-19 15:53:15.278631-05	2022-10-19 15:53:15.278631-05
+4	ARCHER C64	2022-10-19 15:53:28.638073-05	2022-10-19 15:53:28.638073-05
+5	ZTE 670	2022-10-19 15:53:39.044887-05	2022-10-19 15:53:39.044887-05
+6	ZTE 660	2022-10-19 15:53:55.123084-05	2022-10-19 15:53:55.123084-05
+7	NEXXT 300	2022-10-19 15:54:03.835115-05	2022-10-19 15:54:03.836115-05
+8	NEXXT 1200	2022-10-19 15:54:13.447275-05	2022-10-19 15:54:13.447275-05
+9	ARCHER C50	2022-10-19 15:55:20.256821-05	2022-10-19 15:55:20.256821-05
+10	TOTO LINK 1200	2022-10-19 15:55:34.045619-05	2022-10-19 15:55:34.045619-05
+11	ARCHER C20	2022-10-19 15:55:45.000806-05	2022-10-19 15:55:45.000806-05
+12	TENDA 1200	2022-10-19 15:56:04.938161-05	2022-10-19 15:56:04.938161-05
+13	ARCHER C60	2022-10-19 15:56:13.852392-05	2022-10-19 15:56:13.852392-05
+14	D-LINK 1200	2022-10-19 15:56:22.85368-05	2022-10-19 15:56:22.85368-05
+\.
+
+
+--
+-- TOC entry 3490 (class 0 OID 17389)
+-- Dependencies: 235
+-- Data for Name: soportesLivingNet_problemaconfirmado; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."soportesLivingNet_problemaconfirmado" (pcon_id_pk, pcon_codigo, pcon_problema, "create", update) FROM stdin;
+1	RCP	ROUTER CON PROBLEMAS	2022-10-21 12:02:58.178279-05	2022-10-21 12:02:58.178279-05
+2	OCP	ONT CON PROBLEMAS	2022-10-21 12:03:25.861054-05	2022-10-21 12:04:10.440077-05
+3	DE	DESCARGAS ELECTRICAS	2022-10-21 12:04:26.095124-05	2022-10-21 12:04:26.095124-05
+4	ECP	ETHER CON PROBLEMAS	2022-10-21 12:04:44.137749-05	2022-10-21 12:04:44.137749-05
+5	S	SATURACION	2022-10-21 12:04:57.502274-05	2022-10-21 12:04:57.502274-05
+6	RD	ROUTER DAÑADO	2022-10-21 12:05:38.434613-05	2022-10-21 12:05:38.434613-05
+7	RR	ROUTER RESETEADO	2022-10-21 12:06:04.375853-05	2022-10-21 12:06:04.375853-05
+8	CDC	CAMBIO DE CONTRASEÑA	2022-10-21 12:06:18.099598-05	2022-10-21 12:06:18.099598-05
+9	LOS	LOS	2022-10-21 12:06:25.325691-05	2022-10-21 12:06:25.325691-05
+10	TVD	TEST DE VELOCIDAD DEFICIENTE	2022-10-21 12:06:39.627516-05	2022-10-21 12:06:39.627516-05
+11	CWD	COBERTURA WIFI DEFICIENTE	2022-10-21 12:06:58.183716-05	2022-10-21 12:06:58.183716-05
+12	SMC	SISTEMA MANDO A CORTE	2022-10-21 12:07:06.847978-05	2022-10-21 12:07:06.847978-05
+13	RSCP	ROUTER SECUNDARIO CON PROBLEMAS	2022-10-21 12:08:06.272012-05	2022-10-21 12:08:06.272012-05
+14	CUE	CAMBIO DE UBICACION DE EQUIPO	2022-10-21 12:08:21.587058-05	2022-10-21 12:08:21.587058-05
+15	ND	NO DETERMINADO	2022-10-21 12:08:31.601923-05	2022-10-21 12:08:31.601923-05
+16	OD	ONT DAÑADA	2022-10-21 12:08:44.719355-05	2022-10-21 12:08:44.719355-05
+17	ED	EQUIPOS DESCONECTADOS	2022-10-21 12:08:58.718112-05	2022-10-21 12:08:58.718112-05
+18	VD	VELOCIDAD DEFICIENTE	2022-10-21 12:09:10.662089-05	2022-10-21 12:09:10.662089-05
+19	PB	POTENCIA BAJA	2022-10-21 12:09:26.50371-05	2022-10-21 12:09:26.50371-05
+20	CDI	CONFLICTO DE IP	2022-10-21 12:09:35.092203-05	2022-10-21 12:09:35.092203-05
+21	WNC	WIFI NO CERTIFICADO	2022-10-21 12:09:48.623823-05	2022-10-21 12:09:48.623823-05
+22	MDP	MARCADO DE PAQUETES	2022-10-21 12:09:59.272627-05	2022-10-21 12:09:59.272627-05
+23	EDU	EQUIPOS DEFICIENTES USUARIO	2022-10-21 12:10:13.947594-05	2022-10-21 12:10:13.947594-05
+\.
+
+
+--
+-- TOC entry 3492 (class 0 OID 17397)
+-- Dependencies: 237
+-- Data for Name: soportesLivingNet_problemareportado; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."soportesLivingNet_problemareportado" (prep_id_pk, prep_codigo, prep_problema, "create", update) FROM stdin;
+1	RCP	ROUTER CON PROBLEMAS	2022-10-21 11:55:26.97686-05	2022-10-21 11:55:26.97686-05
+2	OCP	ONT CON PROBLEMAS	2022-10-21 11:55:40.482682-05	2022-10-21 11:55:40.482682-05
+3	DE	DESCARGAS ELECTRICAS	2022-10-21 11:56:06.06381-05	2022-10-21 11:56:06.06381-05
+4	ECP	ETHER CON PROBLEMAS	2022-10-21 11:56:24.478789-05	2022-10-21 11:56:24.478789-05
+5	NTI	NO TIENE INTERNET	2022-10-21 11:56:35.394652-05	2022-10-21 11:56:35.394652-05
+6	PA	PING ALTO	2022-10-21 11:56:52.292378-05	2022-10-21 11:56:52.292378-05
+7	RD	ROUTER DAÑADO	2022-10-21 11:57:09.93461-05	2022-10-21 11:57:09.93461-05
+8	RR	ROUTER RESETEADO	2022-10-21 11:57:28.725367-05	2022-10-21 11:57:28.725367-05
+9	SI	SERVICION INTERMITENTE	2022-10-21 11:57:43.459953-05	2022-10-21 11:57:43.459953-05
+10	SL	SERVICIO LENTO	2022-10-21 11:57:52.401466-05	2022-10-21 11:57:52.401466-05
+11	CC	CAMBIO DE CONTRASENIA	2022-10-21 11:58:07.218121-05	2022-10-21 11:58:07.218121-05
+12	TVD	TEST DE VELOCIDAD DEFICIENTE	2022-10-21 11:58:30.717101-05	2022-10-21 11:58:30.717101-05
+13	CWD	COBERTURA WIFI DEFISIENTE	2022-10-21 11:58:55.272948-05	2022-10-21 11:58:55.272948-05
+14	PZ	PROBLEMAS ZOOM	2022-10-21 11:59:05.13084-05	2022-10-21 11:59:05.13084-05
+15	NCTE	NO SE CONECTAN TODOS LOS EQUIPOS	2022-10-21 12:01:28.895824-05	2022-10-21 12:01:28.895824-05
+\.
+
+
+--
+-- TOC entry 3494 (class 0 OID 17405)
+-- Dependencies: 239
+-- Data for Name: soportesLivingNet_reporte; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."soportesLivingNet_reporte" (rep_id_pk, rep_estado, rep_pon, rep_potencia_entrada, rep_potencia_salida, rep_ndispositivos, rep_ab_mikrotik, rep_tipo_soporte, rep_observaciones, created, update, "Casa_id", "Contrato_id", "Equipo_id", "ProblemaConfirmado_id", "ProblemaReportado_id") FROM stdin;
+\.
+
+
+--
+-- TOC entry 3500 (class 0 OID 0)
+-- Dependencies: 215
+-- Name: auth_group_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.auth_group_id_seq', 1, false);
+
+
+--
+-- TOC entry 3501 (class 0 OID 0)
+-- Dependencies: 217
+-- Name: auth_group_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.auth_group_permissions_id_seq', 1, false);
+
+
+--
+-- TOC entry 3502 (class 0 OID 0)
+-- Dependencies: 213
+-- Name: auth_permission_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.auth_permission_id_seq', 40, true);
+
+
+--
+-- TOC entry 3503 (class 0 OID 0)
+-- Dependencies: 221
+-- Name: auth_user_groups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.auth_user_groups_id_seq', 1, false);
+
+
+--
+-- TOC entry 3504 (class 0 OID 0)
+-- Dependencies: 219
+-- Name: auth_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.auth_user_id_seq', 1, true);
+
+
+--
+-- TOC entry 3505 (class 0 OID 0)
+-- Dependencies: 223
+-- Name: auth_user_user_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.auth_user_user_permissions_id_seq', 1, false);
+
+
+--
+-- TOC entry 3506 (class 0 OID 0)
+-- Dependencies: 225
+-- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.django_admin_log_id_seq', 41, true);
+
+
+--
+-- TOC entry 3507 (class 0 OID 0)
+-- Dependencies: 211
+-- Name: django_content_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.django_content_type_id_seq', 10, true);
+
+
+--
+-- TOC entry 3508 (class 0 OID 0)
+-- Dependencies: 209
+-- Name: django_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.django_migrations_id_seq', 20, true);
+
+
+--
+-- TOC entry 3509 (class 0 OID 0)
+-- Dependencies: 228
+-- Name: soportesLivingNet_casa_cas_id_pk_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."soportesLivingNet_casa_cas_id_pk_seq"', 1, false);
+
+
+--
+-- TOC entry 3510 (class 0 OID 0)
+-- Dependencies: 230
+-- Name: soportesLivingNet_contrato_con_id_pk_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."soportesLivingNet_contrato_con_id_pk_seq"', 1, false);
+
+
+--
+-- TOC entry 3511 (class 0 OID 0)
+-- Dependencies: 232
+-- Name: soportesLivingNet_equipo_equ_id_pk_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."soportesLivingNet_equipo_equ_id_pk_seq"', 14, true);
+
+
+--
+-- TOC entry 3512 (class 0 OID 0)
+-- Dependencies: 234
+-- Name: soportesLivingNet_problemaconfirmado_pcon_id_pk_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."soportesLivingNet_problemaconfirmado_pcon_id_pk_seq"', 23, true);
+
+
+--
+-- TOC entry 3513 (class 0 OID 0)
+-- Dependencies: 236
+-- Name: soportesLivingNet_problemareportado_prep_id_pk_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."soportesLivingNet_problemareportado_prep_id_pk_seq"', 15, true);
+
+
+--
+-- TOC entry 3514 (class 0 OID 0)
+-- Dependencies: 238
+-- Name: soportesLivingNet_reporte_rep_id_pk_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."soportesLivingNet_reporte_rep_id_pk_seq"', 2, true);
+
+
+-- Completed on 2022-10-21 12:25:38
+
+--
+-- PostgreSQL database dump complete
+--
 
