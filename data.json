@@ -1,0 +1,32 @@
+{
+    "data": {
+        "title": "GRAFICA DE REPORTES POR PROBLEMA REPORTADO EN EL MES DE SEPTIEMBRE DEL 2022",
+        "labels": [
+            "CAMBIO DE CONTRASENIA",
+            "NO SE CONECTAN TODOS LOS EQUIPOS",
+            "ONT CON PROBLEMAS",
+            "SERVICIO LENTO"
+        ],
+        "datasets": [{
+            "label": "NUMERO DE REPORTES POR EQUIPO",
+            "backgroundColor": [
+                "#2f2338",
+                "#62ef76",
+                "#f18eae",
+                "#82b518"
+            ],
+            "borderColor": [
+                "#2f2338",
+                "#62ef76",
+                "#f18eae",
+                "#82b518"
+            ],
+            "data": [
+                3,
+                5,
+                1,
+                1
+            ]
+        }]
+    }
+}

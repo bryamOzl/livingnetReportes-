@@ -1,0 +1,157 @@
+{% extends "admin/base_site.html" %} {% block content %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-v4-grid-only@1.0.0/dist/bootstrap-grid.min.css">
+
+<form id="filterForm">
+    <label for="year">Seleccione el  anio:</label>
+    <select name="year" id="year"></select>
+    <label for="month">Seleccione el  mes:</label>
+    <select name="month" id="month"></select>
+    <input type="submit" value="Cargar" name="_load">
+</form>
+
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: "/reportes/anio/",
+            type: "GET",
+            dataType: "json",
+            success: (jsonResponse) => {
+                // Load all the options
+                jsonResponse.options.forEach(option => {
+                    $("#year").append(new Option(option, option));
+                });
+            },
+            error: () => console.log("Error anios!")
+        });
+
+        $.ajax({
+            url: "/reportes/month/",
+            type: "GET",
+            dataType: "json",
+            success: (jsonResponse) => {
+                // Load all the options
+                jsonResponse.options.forEach(option => {
+                    $("#month").append(new Option(option, option));
+                });
+                // Load data for the first option
+                loadAllCharts($("#year").children().first().val(), $("#month").children().first().val());
+            },
+            error: () => console.log("Error meses!")
+        });
+    });
+
+    $("#filterForm").on("submit", (event) => {
+        event.preventDefault();
+        const year = $("#year").val();
+        const month = $("#month").val();
+        loadAllCharts(year, month)
+    });
+
+    function loadChart(chart, endpoint) {
+        $.ajax({
+            url: endpoint,
+            type: "GET",
+            dataType: "json",
+            success: (jsonResponse) => {
+                // Extract data from the response
+                const title = jsonResponse.data.title;
+                const labels = jsonResponse.data.labels;
+                const datasets = jsonResponse.data.datasets;
+
+                // Reset the current chart
+                chart.data.datasets = [];
+                chart.data.labels = [];
+
+                // Load new data into the chart
+                chart.options.title.text = title;
+                chart.options.title.display = true;
+                chart.data.labels = labels;
+                datasets.forEach(dataset => {
+                    chart.data.datasets.push(dataset);
+                });
+                chart.update();
+            },
+            error: () => console.log("Error Datos " + endpoint + "!")
+        });
+    }
+
+    function loadAllCharts(year, month) {
+        let meses = [
+            'ENERO', 'FEBRERO', 'MARZO', 'ABRIL',
+            'MAYO', 'JUNIO', 'JULIO', 'AGOSTO',
+            'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'
+        ]
+        let mes = meses.indexOf(month) + 1;
+        loadChart(graficaZona, `/reportes/graficasZona/${year}/${mes}/`);
+        loadChart(graficaEquipo, `/reportes/graficasEquipos/${year}/${mes}/`);
+        loadChart(graficaProblema, `/reportes/graficasProblemas/${year}/${mes}/`);
+    }
+</script>
+
+<center>
+    <div class="row">
+        <div class="col-12">
+            <canvas id="graficaZona"></canvas>
+        </div>
+        <div class="col-12">
+            <canvas id="graficaEquipo"></canvas>
+        </div>
+        <div class="col-12">
+            <canvas id="graficaProblema"></canvas>
+        </div>
+    </div>
+</center>
+
+<script>
+    let graficaZonaCtx = document.getElementById("graficaZona").getContext("2d");
+    let graficaZona = new Chart(graficaZonaCtx, {
+        type: "pie",
+        options: {
+            responsive: true,
+            layout: {
+                padding: {
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    bottom: 25
+                }
+            }
+        }
+    });
+
+    let graficaEquipoCtx = document.getElementById("graficaEquipo").getContext("2d");
+    let graficaEquipo = new Chart(graficaEquipoCtx, {
+        type: "pie",
+        options: {
+            responsive: true,
+            layout: {
+                padding: {
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    bottom: 25
+                }
+            }
+        }
+    });
+
+    let graficaProblemaCtx = document.getElementById("graficaProblema").getContext("2d");
+    let graficaProblema = new Chart(graficaProblemaCtx, {
+        type: "pie",
+        options: {
+            responsive: true,
+            layout: {
+                padding: {
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    bottom: 25
+                }
+            }
+        }
+    });
+</script>
+
+{% endblock %}

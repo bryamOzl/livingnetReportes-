@@ -41,14 +41,16 @@ ALLOWED_HOSTS = ['livingne3t.herokuapp.com',
 
 INSTALLED_APPS = [
     #"django.contrib.admin",
+    "reportesLivingNet.apps.CustomAdminConfig",
+
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-    'material',
-    'material.admin',
+    #'material',
+    #'material.admin',
 
     "soportesLivingNet.apps.SoporteslivingnetConfig",
 ]
@@ -56,7 +58,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
 
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
 
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -152,7 +154,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-MATERIAL_ADMIN_SITE = {
+""" MATERIAL_ADMIN_SITE = {
     # 'HEADER':  _('Your site header'),  # Admin site header
     # 'TITLE':  _('Your site title'),  # Admin site title
     # Admin site favicon (path to static should be specified)
@@ -178,7 +180,7 @@ MATERIAL_ADMIN_SITE = {
     'MODEL_ICONS': {  # Set icons for models(lowercase), including 3rd party models, {'model_name': 'material_icon_name', ...}
         'site': 'contact_mail',
     }
-}
+} """
 
 # Heroku: Update database configuration from $DATABASE_URL.
 db_from_env = dj_database_url.config(conn_max_age=500)
