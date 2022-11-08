@@ -16,8 +16,10 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from soportesLivingNet.urls import homepatterns, urlpatterns
 
 urlpatterns = [
+    path('', include(homepatterns)),
     path('admin/', admin.site.urls),
-    path('reportes/', include('soportesLivingNet.urls')),
+    path('reportes/', include(urlpatterns)),
 ]

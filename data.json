@@ -1,29 +1,46 @@
 {
     "data": {
-        "title": "GRAFICA DE REPORTES POR PROBLEMA REPORTADO EN EL MES DE SEPTIEMBRE DEL 2022",
+        "title": "GRAFICA DE REPORTES POR ZONA EN EL MES DE AGOSTO DEL 2023\nTOTAL DE REPORTES : 8",
+        "text": "aqui va texto",
         "labels": [
-            "CAMBIO DE CONTRASENIA",
-            "NO SE CONECTAN TODOS LOS EQUIPOS",
-            "ONT CON PROBLEMAS",
-            "SERVICIO LENTO"
+            "DISTRITO 1 RICAURTE",
+            "DISTRITO 2 RICAURTE",
+            "DISTRITO 3 RICAURTE",
+            "MAYANCELA",
+            "OCHOA LEON",
+            "PATAMARCA",
+            "RC1AX",
+            "RC1CX"
         ],
         "datasets": [{
-            "label": "NUMERO DE REPORTES POR EQUIPO",
+            "label": "NUMERO DE REPORTES POR ZONA",
             "backgroundColor": [
-                "#2f2338",
-                "#62ef76",
-                "#f18eae",
-                "#82b518"
+                "#741edf",
+                "#3f1e4a",
+                "#309038",
+                "#5d6f23",
+                "#509fc1",
+                "#fdc79a",
+                "#e84380",
+                "#a971cb"
             ],
             "borderColor": [
-                "#2f2338",
-                "#62ef76",
-                "#f18eae",
-                "#82b518"
+                "#741edf",
+                "#3f1e4a",
+                "#309038",
+                "#5d6f23",
+                "#509fc1",
+                "#fdc79a",
+                "#e84380",
+                "#a971cb"
             ],
             "data": [
-                3,
-                5,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
                 1,
                 1
             ]

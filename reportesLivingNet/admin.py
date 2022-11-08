@@ -7,7 +7,7 @@ from django.urls import path
 @staff_member_required
 def admin_statistics_view(request):
     return render(request, 'admin/statistics.html', {
-        'title': 'Statistics'
+        'title': 'Gráficas'
     })
 
 
@@ -16,11 +16,11 @@ class CustomAdminSite(admin.AdminSite):
         app_list = super().get_app_list(request)
         app_list += [
             {
-                'name': 'My Custom App',
-                'app_label': 'my_custom_app',
+                'name': 'Graficas',
+                'app_label': 'my_grafic_app',
                 'models': [
                     {
-                        'name': 'Statistics',
+                        'name': 'Estadisticas',
                         'object_name': 'statistics',
                         'admin_url': '/admin/statistics',
                         'view_only': True,

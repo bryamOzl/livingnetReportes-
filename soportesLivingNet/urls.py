@@ -14,3 +14,7 @@ urlpatterns = [
     path('graficasProblemas/<int:year>/<int:month>/',
          views.graph_reports_problema, name='graficasProblemas'),
 ]
+
+homepatterns=[
+    path('', views.home_view, name='home'),  # new
+]

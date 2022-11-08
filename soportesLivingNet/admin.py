@@ -23,7 +23,7 @@ class ReporteAdmin(admin.ModelAdmin):
     list_display = ['Contrato', 'zona', 'Equipo', 'rep_estado',
                     'pro_reportado', 'created']
     list_filter = ('rep_estado', 'ProblemaReportado')
-    search_fields = ('Contrato__con_cod_contrato', 'created')
+    search_fields = ('Contrato__con_cod_contrato', 'created',  'Contrato__con_nombre')
     autocomplete_fields = ['Contrato', 'Equipo', 'Casa',
                            'ProblemaReportado', 'ProblemaConfirmado']
     fields = [('ProblemaReportado', 'ProblemaConfirmado'),

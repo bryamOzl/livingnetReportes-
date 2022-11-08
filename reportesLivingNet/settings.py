@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-import dj_database_url
+#import dj_database_url
 import os
 from pathlib import Path
 
@@ -41,7 +41,7 @@ ALLOWED_HOSTS = ['livingne3t.herokuapp.com',
 
 INSTALLED_APPS = [
     #"django.contrib.admin",
-    "reportesLivingNet.apps.CustomAdminConfig",
+    #"reportesLivingNet.apps.CustomAdminConfig",
 
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -49,8 +49,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-    #'material',
-    #'material.admin',
+    'material',
+    'material.admin',
 
     "soportesLivingNet.apps.SoporteslivingnetConfig",
 ]
@@ -154,7 +154,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-""" MATERIAL_ADMIN_SITE = {
+MATERIAL_ADMIN_SITE = {
     # 'HEADER':  _('Your site header'),  # Admin site header
     # 'TITLE':  _('Your site title'),  # Admin site title
     # Admin site favicon (path to static should be specified)
@@ -170,7 +170,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
     'LOGIN_LOGO':  'img/icon.jpg',
     # Admin site background on login/logout pages (path to static should be specified)
     'LOGOUT_BG':  'img/bg2.png',
-    # 'SHOW_THEMES':  True,  #  Show default admin themes button
+    'SHOW_THEMES':  False,  #  Show default admin themes button
     # 'TRAY_REVERSE': True,  # Hide object-tools and additional-submit-line by default
     # 'NAVBAR_REVERSE': True,  # Hide side navbar by default
     # 'SHOW_COUNTS': True, # Show instances counts for each model
@@ -180,8 +180,14 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
     'MODEL_ICONS': {  # Set icons for models(lowercase), including 3rd party models, {'model_name': 'material_icon_name', ...}
         'site': 'contact_mail',
     }
-} """
+}
+
+#SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+#SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
+#SESSION_EXPIRE_SECONDS = 10  # 1 hora
+#SESSION_EXPIRE_AFTER_LAST_ACTIVITY_GRACE_PERIOD = 1
+#SESSION_COOKIE_AGE = 10 # 600 segundos = 10 minutos
 
 # Heroku: Update database configuration from $DATABASE_URL.
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+#db_from_env = dj_database_url.config(conn_max_age=500)
+#DATABASES['default'].update(db_from_env)
