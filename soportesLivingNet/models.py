@@ -1,7 +1,6 @@
 from email.policy import default
 from random import choices
 from tabnanny import verbose
-from turtle import update
 from django.db import models
 
 # Create your models here.
