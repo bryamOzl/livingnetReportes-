@@ -145,6 +145,9 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # The URL to use when referring to static files (where they will be served from)
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Simplified static file serving.
 # https://pypi.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -183,10 +186,10 @@ MATERIAL_ADMIN_SITE = {
 }
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
-SESSION_EXPIRE_SECONDS = 600  # 10 min
-SESSION_EXPIRE_AFTER_LAST_ACTIVITY_GRACE_PERIOD = 10
-SESSION_COOKIE_AGE = 600 # 600 segundos = 10 minutos
+#SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
+#SESSION_EXPIRE_SECONDS = 3600  # 10 min
+#SESSION_EXPIRE_AFTER_LAST_ACTIVITY_GRACE_PERIOD = 60
+SESSION_COOKIE_AGE = 3600 # 600 segundos = 10 minutos
 
 # Heroku: Update database configuration from $DATABASE_URL.
 #db_from_env = dj_database_url.config(conn_max_age=500)

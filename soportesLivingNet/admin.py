@@ -31,6 +31,7 @@ class ReporteAdmin(admin.ModelAdmin):
               ('rep_potencia_entrada', 'rep_potencia_salida'),
               ('rep_ndispositivos', 'rep_ab_mikrotik'),
               ('Equipo', 'Casa'),
+              ('rep_imagen'),
               'rep_tipo_soporte', 'rep_observaciones', 'Contrato']
 
     def odb(self, obj):

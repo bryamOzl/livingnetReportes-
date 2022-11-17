@@ -142,7 +142,7 @@ class Reporte(models.Model):
     rep_potencia_salida = models.CharField(
         verbose_name='Pot Salida', max_length=70, null=False, blank=False)
     Equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE,
-                                      verbose_name='Equipo', related_name='Equipo', null=False, blank=False)
+                               verbose_name='Equipo', related_name='Equipo', null=False, blank=False)
     rep_ndispositivos = models.IntegerField(
         verbose_name='N° Dispositivos', blank=False, null=False)
     Casa = models.ForeignKey(
@@ -154,6 +154,8 @@ class Reporte(models.Model):
         choices=soporte, verbose_name='Tipo Soporte',  max_length=20, null=False, blank=False)
     rep_observaciones = models.TextField(
         verbose_name='Observaciones', null=False, blank=False)
+    rep_imagen = models.FileField(
+        upload_to='documentos/', verbose_name='Imagen', null=True, blank=True)
     Contrato = models.ForeignKey(Contrato, on_delete=models.CASCADE, verbose_name='Contrato',
                                  related_name='Contrato', null=False, blank=False)
     created = models.DateTimeField(
